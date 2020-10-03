@@ -298,6 +298,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 28.759, y: -19.714, z: 4.891}
+--- !u!1 &1957717526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7026734455190575567, guid: 5cbdcb17381abd84f9826a889d11c26f, type: 3}
+  m_PrefabInstance: {fileID: 4389602185089043625}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1957717527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957717526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e2a83d2d6a86649801257a6272dfb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnakeBody: {fileID: 4607974070471345842, guid: 5f2126d389cbf1d4f9d7f5b6abe7d287, type: 3}
+  direction: {x: -1, y: 0}
+  SnakeScore: 0
 --- !u!1001 &4389602185089043625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -353,7 +373,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnakeHead
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8377050855630435424, guid: 5cbdcb17381abd84f9826a889d11c26f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5cbdcb17381abd84f9826a889d11c26f, type: 3}
 --- !u!1001 &4761247550101377616
 PrefabInstance:
