@@ -52,6 +52,17 @@ public class SnakeLife : MonoBehaviour
     }
 
     // Update is called once per frame
+    
+    
+    public void DestroySnake()
+    {
+        direction = new Vector2(0, 0);
+        foreach (var tail in SnakeTail)
+        {
+            Destroy(tail);
+        }
+        Destroy(gameObject);
+    }
     void Update()
     {
         Buff++;

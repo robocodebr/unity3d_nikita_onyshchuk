@@ -15,4 +15,16 @@ public class DethWall : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+       SnakeLife s = collision.gameObject.GetComponent<SnakeLife>();
+        if(s != null)
+        {
+            // Destroy(collision.gameObject);
+            s.DestroySnake();
+         
+        }
+    }
+
 }

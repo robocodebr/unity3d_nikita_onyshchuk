@@ -15,6 +15,7 @@ public class MainGame : MonoBehaviour
     int time = 0;
     int time2 = 0;
     List<GameObject> Apples = new List<GameObject>();
+    float xx = 0, yy = 0;
     void createSnake()
     {
         SnakeObj = Instantiate(SnakeHead) as GameObject;
@@ -30,21 +31,26 @@ public class MainGame : MonoBehaviour
 
     // Update is called once per frame
 
-    float xx = 0, yy = 0;
+    
     void Update()
     {
         time++;
         time2++;
-        if (time > +maxTime) 
+        if (gameMode == 1 && time >= maxTime) 
         {
             GameObject apple =Instantiate(ApplePref) as  GameObject        ;
             Apples.Add(apple); 
             time = 0;
 
         }
-        if(time2 >= maxTime * 5)
+        if(gameMode == 1 && time2 >= maxTime * 3)
         {
             GameObject apple = Apples[0];
+            if(apple == null)
+            {
+                Apples.Remove(apple);
+                apple = Apples[0];
+            }
             Destroy(apple);
             Apples.Remove(apple);
             time2 = 0;
@@ -85,11 +91,12 @@ public class MainGame : MonoBehaviour
     void OnGUI()
     {
         int posX = Screen.width / 2;
-        int posY = Screen.height / 2;
+        int posY = Screen.height / - 50;
         switch (gameMode)
         {
             case 0:
-            Boolean stateBtn1 = GUI.Button(new Rect(new Vector2(posX - 100, posY),
+            Boolean stateBtn1 = GUI.Button(new Rect
+                (new Vector2(posX - 100, posY),
                                    new Vector2(200, 30)
                                    ), "Старт игры");
                 Boolean stateBtn2 = GUI.Button(new Rect(
@@ -106,13 +113,14 @@ public class MainGame : MonoBehaviour
                 }
                 break;
                                    case 1:
-                SnakeLife snakel = SnakeHead.GetComponent<SnakeLife>();
+                SnakeLife snakel = SnakeObj.GetComponent<SnakeLife>();
                 if (snakel != null) 
                 {
                     score = snakel.SnakeScore;
-                    GUI.Label(new Rect(
-                        new Vector2(posX, 0),
-                        new Vector2(50, 30)), "Score: "+score);
+                    Rect rect = new Rect(
+                        new Vector2(posX - 20, 0),
+                        new Vector2(200, 30));
+                    GUI.Label(rect,"Score: "+score);
                         }
                 
                 

@@ -7,16 +7,16 @@ public class AppleLife : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float x = Random.Range(-8, 8);
-        float y = Random.Range(-5, 5);
+        float x = Random.Range(-10, 10);
+        float y = Random.Range(-4, 4);
 
         // createApple();  
-        AppleObj = Instantiate(ApplePref) as GameObject;
+        
         transform.position = new Vector3(x, y, 0);
     }
    
-    public GameObject ApplePref;
-    GameObject AppleObj;
+    //public GameObject ApplePref;
+    //GameObject AppleObj;
 
     void createApple()
     {
@@ -25,6 +25,17 @@ public class AppleLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+       SnakeLife s = collision.gameObject.GetComponent<SnakeLife>();
+
+        if (s != null)
+        {
+            s.addChank();
+            s.SnakeScore++;
+            Destroy(gameObject);
+        }
+            }
 }
